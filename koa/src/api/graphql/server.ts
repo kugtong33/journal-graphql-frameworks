@@ -16,6 +16,9 @@ export default class {
     this.apollo = new ApolloServer({
       typeDefs: mergeTypes(fileLoader(path.join(__dirname, 'types'), { recursive: true })),
       resolvers: mergeResolvers(fileLoader(path.join(__dirname, 'resolvers'), { recursive: true })),
+      playground: {
+        tabs: [{ endpoint: '/graphql' }]
+      }
     });
   }
 
