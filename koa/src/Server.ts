@@ -2,28 +2,28 @@ import { Server } from 'net';
 import * as Koa from 'koa';
 import * as bodyparser from 'koa-bodyparser';
 import * as cachecontrol from 'koa-cache-control';
-import GraphQL from './api/graphql/server';
-import TypeORM from './lib/typeorm';
+import GraphQLServer from './api/graphql/GraphQLServer';
+import Typeorm from './lib/Typeorm';
 
 interface ServerOption {
-  port: number
+  port: number;
 }
 
 export default class {
-  graphql: GraphQL;
+  graphql: GraphQLServer;
   server?: Server;
   koa: Koa;
-  typeorm: TypeORM;
+  typeorm: Typeorm;
 
   constructor() {
     this.koa = new Koa();
-    this.graphql = new GraphQL();
-    this.typeorm = new TypeORM();
+    this.graphql = new GraphQLServer();
+    this.typeorm = new Typeorm();
     this.server = undefined;
   }
 
   async start(opts: ServerOption = { port: 8888 }) {
-    /* load typeorm first */
+    /* load Typeorm first */
     await this.typeorm.connect();
 
     this.koa.use(bodyparser());

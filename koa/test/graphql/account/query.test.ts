@@ -1,22 +1,22 @@
-/* globals helper */
+/* globals global.helper */
 
-import supertest from 'supertest';
+import * as supertest from 'supertest';
 import test from 'ava';
-import R from 'ramda';
-import Server from '../../../src/server';
+import * as R from 'ramda';
+import Server from '../../../src/Server';
 import randomAccount from '../../helpers/random/account';
 
 test.before(async () => {
-  const port = helper.chance.integer({ max: 9000, min: 8000 });
+  const port = global.helper.chance.integer({ max: 9000, min: 8000 });
   const server = new Server();
 
-  helper.request = supertest(await server.start({ port }));
+  global.helper.request = supertest(await server.start({ port }));
 });
 
 test('query account', async (t) => {
   const account = await randomAccount();
 
-  const { body } = await helper.request
+  const { body } = await global.helper.request
     .post('/graphql')
     .send({
       query: `

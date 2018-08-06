@@ -1,5 +1,4 @@
-import assert from 'assert';
-import Chance from 'chance';
+import * as Chance from 'chance';
 
 global.helper = {};
 global.helper.chance = Chance();

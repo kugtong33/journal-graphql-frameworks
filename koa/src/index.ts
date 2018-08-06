@@ -1,5 +1,5 @@
-import "reflect-metadata";
-import Server from './server';
+import 'reflect-metadata';
+import Server from './Server';
 
 const server = new Server();
 server.start();

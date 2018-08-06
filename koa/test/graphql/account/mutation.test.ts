@@ -1,27 +1,27 @@
-/* globals helper */
+/* globals global.helper */
 
-import supertest from 'supertest';
+import * as supertest from 'supertest';
 import test from 'ava';
-import Server from '../../../src/server';
+import Server from '../../../src/Server';
 import randomAccount from '../../helpers/random/account';
 
 test.before(async () => {
-  const port = helper.chance.integer({ max: 9000, min: 8000 });
+  const port = global.global.helper.chance.integer({ max: 9000, min: 8000 });
   const server = new Server();
 
-  helper.request = supertest(await server.start({ port }));
+  global.helper.request = supertest(await server.start({ port }));
 });
 
 test('create account', async (t) => {
   const input = {
-    firstname: helper.chance.first(),
-    lastname: helper.chance.last(),
-    username: helper.chance.email(),
-    password: helper.chance.string(),
+    firstname: global.helper.chance.first(),
+    lastname: global.helper.chance.last(),
+    username: global.helper.chance.email(),
+    password: global.helper.chance.string(),
     age: 25
   };
 
-  const { body } = await helper.request
+  const { body } = await global.helper.request
     .post('/graphql')
     .send({
       query: `
@@ -47,11 +47,11 @@ test('update account', async (t) => {
 
   const input = {
     id: account.id,
-    firstname: helper.chance.first(),
-    lastname: helper.chance.last(),
+    firstname: global.helper.chance.first(),
+    lastname: global.helper.chance.last(),
   };
 
-  const { body } = await helper.request
+  const { body } = await global.helper.request
     .post('/graphql')
     .send({
       query: `
@@ -80,7 +80,7 @@ test('update account password', async (t) => {
     newPassword: 'password456',
   };
 
-  const { body } = await helper.request
+  const { body } = await global.helper.request
     .post('/graphql')
     .send({
       query: `

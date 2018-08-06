@@ -21,17 +21,18 @@
   },
   "devDependencies": {
     "@types/bcrypt": "^2.0.0",
+    "@types/chance": "^1.0.1",
     "@types/koa": "^2.0.46",
     "@types/koa-bodyparser": "^5.0.1",
     "@types/koa-cache-control": "^2.0.1",
     "@types/koa-router": "^7.0.31",
     "@types/node": "^8.0.29",
     "@types/ramda": "^0.25.36",
+    "@types/superagent": "^3.8.3",
+    "@types/supertest": "^2.0.5",
     "ava": "^0.25.0",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-register": "^6.26.0",
     "chance": "^1.0.16",
+    "copyfiles": "^2.0.0",
     "supertest": "^3.1.0",
     "ts-node": "^3.3.0",
     "tslint": "^5.11.0",
@@ -42,8 +43,8 @@
     "typescript": "^2.5.2"
   },
   "scripts": {
-    "test": "ava",
-    "lint": "tslint src/**/*.ts",
+    "test": "copyfiles src/api/graphql/types/** build && tsc && ava",
+    "lint": "tslint **/*.ts",
     "start": "ts-node src/index.ts"
   },
   "keywords": [
@@ -52,26 +53,15 @@
     "graphql"
   ],
   "ava": {
-    "files": [
-      "test/graphql/**/*.test.js"
-    ],
-    "concurrency": 5,
-    "failFast": true,
-    "failWithoutAssertions": true,
-    "tap": false,
-    "verbose": true,
-    "powerAssert": false,
-    "babel": "inherit",
     "compileEnhancements": false,
     "extensions": [
       "ts"
     ],
     "require": [
       "ts-node/register",
-      "babel-register",
-      "./test/helpers/globals.js"
+      "./test/helpers/globals.ts"
     ]
   },
-  "author": "",
+  "author": "Arjay Sitoy <sitoy.arjay@gmail.com>",
   "license": "MIT"
 }
