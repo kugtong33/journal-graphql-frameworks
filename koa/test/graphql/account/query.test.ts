@@ -1,5 +1,3 @@
-/* globals global.helper */
-
 import * as supertest from 'supertest';
 import test from 'ava';
 import * as R from 'ramda';

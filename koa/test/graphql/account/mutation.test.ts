@@ -1,5 +1,3 @@
-/* globals global.helper */
-
 import * as supertest from 'supertest';
 import test from 'ava';
 import Server from '../../../src/Server';

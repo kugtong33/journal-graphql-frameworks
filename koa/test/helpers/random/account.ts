@@ -1,5 +1,3 @@
-/* globals global.helper */
-
 import * as bcrypt from 'bcrypt';
 import { Account } from '../../../src/entity/Account';
 
