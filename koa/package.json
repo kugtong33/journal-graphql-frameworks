@@ -58,8 +58,7 @@
       "ts"
     ],
     "require": [
-      "ts-node/register",
-      "./test/helpers/globals.ts"
+      "ts-node/register"
     ]
   },
   "author": "Arjay Sitoy <sitoy.arjay@gmail.com>",

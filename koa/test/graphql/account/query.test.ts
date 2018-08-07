@@ -1,20 +1,24 @@
 import * as supertest from 'supertest';
+import * as Chance from 'chance';
 import test from 'ava';
 import * as R from 'ramda';
 import Server from '../../../src/Server';
 import randomAccount from '../../helpers/random/account';
 
+const chance: Chance.Chance = new Chance();
+let request: supertest.SuperTest<supertest.Test> = null;
+
 test.before(async () => {
-  const port = global.helper.chance.integer({ max: 9000, min: 8000 });
+  const port = chance.integer({ max: 9000, min: 8000 });
   const server = new Server();
 
-  global.helper.request = supertest(await server.start({ port }));
+  request = supertest(await server.start({ port }));
 });
 
 test('query account', async (t) => {
   const account = await randomAccount();
 
-  const { body } = await global.helper.request
+  const { body } = await request
     .post('/graphql')
     .send({
       query: `
