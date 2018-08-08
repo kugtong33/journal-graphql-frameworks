@@ -1,0 +1,20 @@
+input CreateAccountInput {
+  username: String!
+  password: String!
+  firstname: String!
+  lastname: String
+  age: Int
+}
+
+input UpdateAccountInput {
+  id: String!
+  firstname: String
+  lastname: String
+  age: Int
+}
+
+input UpdateAccountPasswordInput {
+  id: String!
+  oldPassword: String!
+  newPassword: String!
+}
