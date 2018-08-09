@@ -18,6 +18,8 @@ export default {
     async createAccount(obj: object, args: { input: AccountArgs }) {
       const password = await hash(args.input.password, await genSalt(10));
 
+      args.input.password = password;
+
       return Account.create(args.input).then((account: { dataValues: object }) => account.dataValues);
     },
 
