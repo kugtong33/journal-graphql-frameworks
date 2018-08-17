@@ -7,7 +7,6 @@ export default new Sequelize(
   {
     host: process.env.POSTGRES_HOST || 'localhost',
     dialect: 'postgres',
-    operatorsAliases: false,
     pool: {
       max: process.env.POSTGRES_POOL_MAX ? parseInt(process.env.POSTGRES_POOL_MAX, 10) : 12,
       min: process.env.POSTGRES_POOL_MIN ? parseInt(process.env.POSTGRES_POOL_MIN, 10) : 2,

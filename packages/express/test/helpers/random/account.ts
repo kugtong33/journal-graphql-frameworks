@@ -14,8 +14,10 @@ export default async () => {
   account.lastname = chance.last();
   account.age = 35;
 
-  const result = Account.create(account)
+  const result = await Account.create(account)
     .then((account: { dataValues: object }) => account.dataValues);
+
+  console.log(result);
 
   return {
     rawPassword: password,

@@ -14,12 +14,9 @@ const Account = Sequelize.define(
     lastname: Sequelize.Sequelize.STRING,
     age: Sequelize.Sequelize.INTEGER,
   },
-  {
-    tableName: 'Account',
-    timestamps: false
-  },
+  { timestamps: false },
 );
 
-Account.removeAttribute('id');
+Account.sync({ force: false });
 
 export default Account;

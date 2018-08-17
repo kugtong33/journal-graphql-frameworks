@@ -7,19 +7,21 @@ import * as R from 'ramda';
 import Server from '../../../src/Server';
 import randomAccount from '../../helpers/random/account';
 
-const chance: Chance.Chance = new Chance();
-let request: supertest.SuperTest<supertest.Test> = null;
 
 describe('Account Query API', () => {
+  const server = new Server();
+  const chance: Chance.Chance = new Chance();
+
+  let request: supertest.SuperTest<supertest.Test> = null;
+
   before(async () => {
     const port = chance.integer({ max: 9000, min: 8000 });
-    const server = new Server();
-
     request = supertest(await server.start({ port }));
   });
 
+  after(async () => { await server.stop(); });
 
-  it('can query account', async (t) => {
+  it('can query account', async () => {
     const account: any = await randomAccount();
 
     const { body } = await request

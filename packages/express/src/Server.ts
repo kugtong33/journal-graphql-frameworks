@@ -3,22 +3,27 @@ import * as core from "express-serve-static-core";
 import * as express from 'express';
 import * as bodyparser from 'body-parser';
 import * as cors from 'cors';
+import GraphQLServer from './api/graphql/GraphQLServer';
 
 interface ServerOption {
   port: number;
 }
 
 export default class {
+  graphql: GraphQLServer;
   server?: Server;
   express: core.Express;
 
   constructor() {
     this.express = express();
+    this.graphql = new GraphQLServer();
   }
 
   async start (opts: ServerOption = { port: 8888 }) {
     this.express.use(bodyparser());
     this.express.use(cors());
+
+    this.graphql.apply(this.express);
 
     this.server = this.express.listen(opts.port);
 

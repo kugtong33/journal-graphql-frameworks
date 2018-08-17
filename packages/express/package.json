@@ -4,7 +4,7 @@
   "description": "express template for graphql api",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -r ts-node/register test/**/test.ts"
+    "test": "mocha -r ts-node/register ./test/**/*.test.ts"
   },
   "devDependencies": {
     "@types/bcrypt": "^2.0.0",
@@ -41,10 +41,12 @@
     "apollo-server-express": "^2.0.0",
     "bcrypt": "^3.0.0",
     "body-parser": "^1.18.3",
+    "core-js": "^2.5.7",
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "graphql": "^0.13.2",
     "merge-graphql-schemas": "^1.5.3",
+    "pg": "^7.4.3",
     "ramda": "^0.25.0",
     "sequelize": "^4.38.0"
   }

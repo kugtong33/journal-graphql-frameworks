@@ -5,11 +5,12 @@ import { describe, before, it } from 'mocha';
 import Server from '../../../src/Server';
 import randomAccount from '../../helpers/random/account';
 
-const chance: Chance.Chance = new Chance();
-let request: supertest.SuperTest<supertest.Test> = null;
 
 describe('Account Mutation API', () => {
+  const chance: Chance.Chance = new Chance();
   const server = new Server();
+
+  let request: supertest.SuperTest<supertest.Test> = null;
 
   before(async () => {
     const port = chance.integer({ max: 9000, min: 8000 });
