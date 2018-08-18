@@ -32,7 +32,7 @@
     "@types/koa-bodyparser": "^5.0.1",
     "@types/koa-cache-control": "^2.0.1",
     "@types/koa-router": "^7.0.31",
-    "@types/node": "^8.0.29",
+    "@types/node": "^10.7.1",
     "@types/ramda": "^0.25.36",
     "@types/superagent": "^3.8.3",
     "@types/supertest": "^2.0.5",
@@ -40,13 +40,13 @@
     "chance": "^1.0.16",
     "copyfiles": "^2.0.0",
     "supertest": "^3.1.0",
-    "ts-node": "^3.3.0",
+    "ts-node": "^7.0.1",
     "tslint": "^5.11.0",
     "tslint-config-airbnb": "^5.9.2",
     "tslint-eslint-rules": "^5.3.1",
     "tslint-microsoft-contrib": "^5.1.0",
     "tsutils": "^3.0.0",
-    "typescript": "^2.5.2"
+    "typescript": "^3.0.1"
   },
   "keywords": [
     "koa",
