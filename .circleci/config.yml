@@ -31,6 +31,7 @@ jobs:
       - restore_cache:
           keys:
             - dependencies-{{ checksum "packages/express/package.json" }}
+      - run: npm install
       - run: npx lerna bootstrap
       - save_cache:
           key: dependencies-{{ checksum "package.json" }}
