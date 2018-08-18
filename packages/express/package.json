@@ -4,7 +4,9 @@
   "description": "express template for graphql api",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -r ts-node/register ./test/**/*.test.ts"
+    "test": "mocha --exit -r ts-node/register ./test/**/*.test.ts",
+    "lint": "tslint **/*.ts",
+    "start": "ts-node src/index.ts"
   },
   "devDependencies": {
     "@types/bcrypt": "^2.0.0",

@@ -1,5 +1,5 @@
 import { Server } from 'net';
-import * as core from "express-serve-static-core";
+import * as core from 'express-serve-static-core';
 import * as express from 'express';
 import * as bodyparser from 'body-parser';
 import * as cors from 'cors';

@@ -3,6 +3,11 @@
   "version": "0.1.0",
   "description": "koa template for graphql api",
   "main": "index.js",
+  "scripts": {
+    "test": "copyfiles src/api/graphql/types/** build && tsc && ava",
+    "lint": "tslint **/*.ts",
+    "start": "ts-node src/index.ts"
+  },
   "dependencies": {
     "apollo-server-koa": "^2.0.0",
     "bcrypt": "^3.0.0",
@@ -41,11 +46,6 @@
     "tslint-microsoft-contrib": "^5.1.0",
     "tsutils": "^3.0.0",
     "typescript": "^2.5.2"
-  },
-  "scripts": {
-    "test": "copyfiles src/api/graphql/types/** build && tsc && ava",
-    "lint": "tslint **/*.ts",
-    "start": "ts-node src/index.ts"
   },
   "keywords": [
     "koa",
