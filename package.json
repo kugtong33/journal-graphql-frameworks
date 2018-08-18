@@ -1,5 +1,8 @@
 {
   "name": "root",
+  "scripts": {
+    "pg-setup": "./sql/pg-setup.sh"
+  },
   "private": true,
   "devDependencies": {
     "lerna": "^3.0.6"

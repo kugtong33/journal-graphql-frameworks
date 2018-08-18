@@ -1,0 +1,98 @@
+---
+jobs:
+  source:
+    docker:
+      - image: circleci/node:8.11.4-stretch
+    steps:
+      - checkout
+      - run:
+          name: save SHA to a file
+          command: echo $CIRCLE_SHA1 > .circle-sha
+      - save_cache:
+          key: repository-{{ checksum ".circle-sha" }}
+          paths:
+            - .
+  bootstrap:
+    docker:
+      - image: circleci/node:8.11.4-stretch
+    steps:
+      - run:
+          name: save SHA to a file
+          command: echo $CIRCLE_SHA1 > .circle-sha
+      - restore_cache:
+          keys:
+            - repository-{{ checksum ".circle-sha" }}
+      - restore_cache:
+          keys:
+            - dependencies-{{ checksum "package.json" }}
+      - restore_cache:
+          keys:
+            - dependencies-{{ checksum "packages/koa/package.json" }}
+      - restore_cache:
+          keys:
+            - dependencies-{{ checksum "packages/express/package.json" }}
+      - run: npx lerna bootstrap
+      - save_cache:
+          key: dependencies-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+      - save_cache:
+          key: dependencies-{{ checksum "packages/koa/package.json" }}
+          paths:
+            - packages/koa/node_modules
+      - save_cache:
+          key: dependencies-{{ checksum "packages/express/package.json" }}
+          paths:
+            - packages/express/node_modules
+  test:
+    docker:
+      - image: circleci/node:8.11.4-stretch
+      - image: postgres:10.5
+        environment:
+          - POSTGRES_PASSWORD=ZceIdtdqt4wvjmQQvWdO
+          - POSTGRES_USER=postgres
+    steps:
+      - run:
+          name: save SHA to a file
+          command: echo $CIRCLE_SHA1 > .circle-sha
+      - restore_cache:
+          keys:
+            - repository-{{ checksum ".circle-sha" }}
+      - restore_cache:
+          keys:
+            - dependencies-{{ checksum "package.json" }}
+      - restore_cache:
+          keys:
+            - dependencies-{{ checksum "packages/koa/package.json" }}
+      - restore_cache:
+          keys:
+            - dependencies-{{ checksum "packages/express/package.json" }}
+      - run:
+          name: posgresql client setup
+          command: >
+            sudo apt install wget ca-certificates &&
+            echo "deb http://apt.postgresql.org/pub/repos/apt/ jessie-pgdg main" | sudo tee --append /etc/apt/sources.list.d/pgdg.list &&
+            wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add - &&
+            echo "deb http://security.debian.org/debian-security jessie/updates main " | sudo tee --append /etc/apt/sources.list &&
+            sudo apt update &&
+            sudo apt install libssl1.0.0 libpq5 postgresql-client-10
+      - run:
+          name: lint
+          command: npx lerna run lint
+      - run:
+          name: pg-setup
+          command: npm run pg-setup
+      - run:
+          name: test
+          command: npx lerna run test
+workflows:
+  version: 2
+  test:
+    jobs:
+      - source
+      - bootstrap:
+          requires:
+            - source
+      - test:
+          requires:
+            - bootstrap
