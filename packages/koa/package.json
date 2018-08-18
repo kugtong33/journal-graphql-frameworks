@@ -4,7 +4,8 @@
   "description": "koa template for graphql api",
   "main": "index.js",
   "scripts": {
-    "test": "copyfiles src/api/graphql/types/** build && tsc && ava",
+    "test": "copyfiles src/api/graphql/types/** build && tsc && nyc ava",
+    "posttest": "nyc report --reporter=json && codecov -f coverage/*.json",
     "lint": "tslint **/*.ts",
     "start": "ts-node src/index.ts"
   },

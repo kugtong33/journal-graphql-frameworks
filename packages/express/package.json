@@ -4,7 +4,8 @@
   "description": "express template for graphql api",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --exit -r ts-node/register ./test/**/*.test.ts",
+    "test": "nyc mocha --exit -r ts-node/register ./test/**/*.test.ts",
+    "posttest": "nyc report --reporter=json && codecov -f coverage/*.json",
     "lint": "tslint **/*.ts",
     "start": "ts-node src/index.ts"
   },

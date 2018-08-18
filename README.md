@@ -1,17 +1,21 @@
 # ScaffoldJS
 
-I am creating a compilation of tools that runs with **GraphQL** and **Typescript**, but if it doesn't work well with graphql and typescript I will be deleting it on the list. Most of the templates will use **TypeORM** but will look on other tools such as **Seqeulize**, **Waterline**, etc.
+[![CircleCI](https://circleci.com/gh/kugtong33/scaffoldjs.svg?style=svg)](https://circleci.com/gh/kugtong33/scaffoldjs)
 
-- [ ] Express
+A compilation of stack that runs with [**GraphQL**](https://graphql.org/) and [**Typescript**](https://www.typescriptlang.org/)
+
+## API Frameworks
+
+- [x] Express
 - [x] Koa
+- [ ] Nest
 - [ ] Micro
+- [ ] Loopback
 - [ ] Serverless
 - [ ] Meteor
-- [ ] Hapi
-- [ ] Sails
-- [ ] Loopback
-- [ ] FeatherJS
-- [ ] Keystone
-- [ ] Adonis
-- [ ] Restify
-- [ ] Kraken
+
+## Dedicated ORMs
+
+- [x] Typeorm
+- [x] Sequelize
+- [ ] Waterline

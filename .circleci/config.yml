@@ -85,6 +85,10 @@ jobs:
       - run:
           name: test
           command: npx lerna run test
+      - run:
+          name: coverage
+          command: npx codecov --token=7dc0f018-3104-4e9e-b0fa-a6aa09503eac
+
 workflows:
   version: 2
   test:
