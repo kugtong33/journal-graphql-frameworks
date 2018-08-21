@@ -1,0 +1,7 @@
+type Account {
+  id: String!
+  username: String!
+  firstname: String
+  lastname: String
+  age: Int
+}

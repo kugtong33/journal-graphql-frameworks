@@ -1,0 +1,5 @@
+type Mutation {
+  createAccount(input: CreateAccountInput!): Account!
+  updateAccount(input: UpdateAccountInput!): Account!
+  updateAccountPassword(input: UpdateAccountPasswordInput!): Boolean!
+}
