@@ -12,7 +12,7 @@
   "dependencies": {
     "apollo-server-koa": "^2.0.0",
     "bcrypt": "^3.0.0",
-    "graphql": "^0.13.2",
+    "graphql": "^14.0.0",
     "graphql-tools": "^3.1.1",
     "koa": "^2.5.2",
     "koa-bodyparser": "^4.2.1",
