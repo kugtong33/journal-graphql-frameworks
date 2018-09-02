@@ -1,5 +1,5 @@
 import { NestFactory } from '@nestjs/core';
-import AppModule from './api/graphql/graphql.module';
+import AppModule from './api/graphql/graphql';
 
 declare const module: any;
 
@@ -12,4 +12,5 @@ async function bootstrap() {
     module.hot.dispose(() => app.close());
   }
 }
+
 bootstrap();
