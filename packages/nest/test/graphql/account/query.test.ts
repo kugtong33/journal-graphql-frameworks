@@ -2,7 +2,7 @@ import * as supertest from 'supertest';
 import * as Chance from 'chance';
 import test from 'ava';
 import * as R from 'ramda';
-import Server from '../../../src/Server';
+import Server from '../../../src/server';
 import randomAccount from '../../helpers/random/account';
 
 const chance: Chance.Chance = new Chance();

@@ -1,8 +1,8 @@
-import { Query, Mutation, Resolver, Args } from '@nestjs/graphql';
+import { Mutation, Resolver, Args } from '@nestjs/graphql';
 import { Account } from '../../interfaces/account';
 
-@Resolver('Account')
-export class AccountResolver {
+@Resolver('Mutation')
+export class MutationResolver {
   @Mutation()
   async createAccount(@Args() args: Account) {}
 
@@ -11,7 +11,4 @@ export class AccountResolver {
 
   @Mutation()
   async updateAccountPassword(@Args() args: Account) {}
-
-  @Query()
-  async account(@Args('id') id: string) {}
 }
