@@ -2,7 +2,7 @@ import { BaseEntity, Entity, Column, PrimaryGeneratedColumn, Unique } from 'type
 
 @Unique(['username'])
 @Entity()
-export class Account extends BaseEntity {
+export class AccountEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: string;
 

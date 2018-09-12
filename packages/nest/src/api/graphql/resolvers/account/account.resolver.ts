@@ -1,13 +1,20 @@
 import { Mutation, Resolver, Args, Query } from '@nestjs/graphql';
 import { Account } from '../../interfaces/account';
-import { AccountService } from './account.service';
+import { InjectRepository } from '@nestjs/typeorm';
+import { AccountEntity } from '../../../../entity/account.entity';
+import { Repository } from 'typeorm';
 
 @Resolver('Account')
 export class AccountResolver {
-  constructor(private readonly service: AccountService) {}
+  constructor(
+    @InjectRepository(AccountEntity)
+    private readonly entity: Repository<AccountEntity>,
+  ) {}
 
   @Query('account')
-  async account(@Args('id') id: string) {}
+  async account(@Args('id') id: string) {
+    return this.entity.findOne({ where: { id } });
+  }
 
   @Mutation('createAccount')
   async createAccount(@Args() args: Account) {}
