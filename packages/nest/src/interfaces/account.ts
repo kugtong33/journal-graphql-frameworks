@@ -1,4 +1,4 @@
-export interface Account {
+export default interface Account {
   readonly id: string;
   readonly username: string;
   readonly firstname: string;

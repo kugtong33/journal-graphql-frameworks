@@ -1,7 +1,7 @@
 import { Mutation, Resolver, Args, Query } from '@nestjs/graphql';
 import * as R from 'ramda';
 import { hash, genSalt, compare } from 'bcrypt';
-import { Account } from '../../interfaces/account';
+import Account from '../../../../interfaces/account';
 import { InjectRepository } from '@nestjs/typeorm';
 import { AccountEntity } from '../../../../entity/account.entity';
 import { Repository } from 'typeorm';

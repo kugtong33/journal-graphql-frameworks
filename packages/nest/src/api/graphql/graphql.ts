@@ -15,7 +15,6 @@ import { Connection } from 'typeorm';
     password: 'ZceIdtdqt4wvjmQQvWdO',
     database: 'nest',
     entities: [__dirname + '/../../**/*.entity{.ts,.js}'],
-    synchronize: true,
     logging: false,
   })
 ] })

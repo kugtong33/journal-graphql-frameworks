@@ -8,7 +8,9 @@
     "format": "prettier --write \"**/*.ts\"",
     "start": "ts-node -r tsconfig-paths/register src/main.ts",
     "prestart:prod": "rm -rf build && tsc",
-    "test": "copyfiles src/api/graphql/types/** build && tsc && nyc ava"
+    "test": "copyfiles src/api/graphql/types/** build && tsc && nyc ava",
+    "pretest": "node -r ts-node/register node_modules/.bin/typeorm migration:run",
+    "posttest": "nyc report --reporter=json && codecov -f coverage/*.json"
   },
   "dependencies": {
     "@nestjs/common": "^5.3.6",
