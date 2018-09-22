@@ -1,8 +1,8 @@
 import { BaseEntity, Entity, Column, PrimaryGeneratedColumn, Unique } from 'typeorm';
 
 @Unique(['username'])
-@Entity()
-export class Account extends BaseEntity {
+@Entity('Accounts')
+export class AccountEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: string;
 
