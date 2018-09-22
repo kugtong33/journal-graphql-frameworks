@@ -1,7 +1,7 @@
 import Sequelize from '../lib/Sequelize';
 
 const Account = Sequelize.define(
-  'Account',
+  'Accounts',
   {
     id: {
       type: Sequelize.Sequelize.INTEGER,
@@ -14,9 +14,7 @@ const Account = Sequelize.define(
     lastname: Sequelize.Sequelize.STRING,
     age: Sequelize.Sequelize.INTEGER,
   },
-  { timestamps: false },
+  { tableName: 'Accounts', timestamps: false },
 );
-
-Account.sync({ force: false });
 
 export default Account;

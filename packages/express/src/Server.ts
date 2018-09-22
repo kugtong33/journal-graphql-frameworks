@@ -5,10 +5,6 @@ import * as bodyparser from 'body-parser';
 import * as cors from 'cors';
 import GraphQLServer from './api/graphql/GraphQLServer';
 
-interface ServerOption {
-  port: number;
-}
-
 export default class {
   graphql: GraphQLServer;
   server?: Server;
@@ -19,7 +15,7 @@ export default class {
     this.graphql = new GraphQLServer();
   }
 
-  async start (opts: ServerOption = { port: 8888 }) {
+  async start (opts: { port: number } = { port: 8888 }) {
     this.express.use(bodyparser());
     this.express.use(cors());
 

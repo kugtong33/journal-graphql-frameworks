@@ -6,10 +6,6 @@ import * as cachecontrol from 'koa-cache-control';
 import GraphQLServer from './api/graphql/GraphQLServer';
 import Typeorm from './lib/Typeorm';
 
-interface ServerOption {
-  port: number;
-}
-
 export default class {
   graphql: GraphQLServer;
   server?: Server;
@@ -24,7 +20,7 @@ export default class {
     this.server = undefined;
   }
 
-  async start(opts: ServerOption = { port: 8888 }) {
+  async start(opts: { port: number } = { port: 8888 }) {
     /* load Typeorm first */
     this.connection = await this.typeorm.connect();
 
