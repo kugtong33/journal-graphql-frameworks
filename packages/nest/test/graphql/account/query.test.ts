@@ -6,14 +6,17 @@ import Server from '../../../src/server';
 import randomAccount from '../../helpers/random/account';
 
 const chance: Chance.Chance = new Chance();
+const server = new Server();
+
 let request: supertest.SuperTest<supertest.Test> = null;
 
 test.before(async () => {
   const port = chance.integer({ max: 9000, min: 8000 });
-  const server = new Server();
 
   request = supertest(await server.start({ port }));
 });
+
+test.after(async () => { await server.stop(); });
 
 test('query account', async (t) => {
   const account = await randomAccount();

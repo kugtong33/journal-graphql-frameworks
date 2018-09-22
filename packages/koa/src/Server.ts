@@ -1,4 +1,5 @@
 import { Server } from 'net';
+import { Connection } from 'typeorm';
 import * as Koa from 'koa';
 import * as bodyparser from 'koa-bodyparser';
 import * as cachecontrol from 'koa-cache-control';
@@ -14,6 +15,7 @@ export default class {
   server?: Server;
   koa: Koa;
   typeorm: Typeorm;
+  connection: Connection;
 
   constructor() {
     this.koa = new Koa();
@@ -24,7 +26,7 @@ export default class {
 
   async start(opts: ServerOption = { port: 8888 }) {
     /* load Typeorm first */
-    await this.typeorm.connect();
+    this.connection = await this.typeorm.connect();
 
     this.koa.use(bodyparser());
     this.koa.use(cachecontrol({ noCache: true }));
@@ -37,6 +39,8 @@ export default class {
   }
 
   async stop() {
+    await this.connection.close();
+
     await new Promise((resolve) => {
       this.server && this.server.close(resolve);
     });
