@@ -22,7 +22,7 @@ export default {
       account.firstname = args.input.firstname;
       account.lastname = args.input.lastname;
       account.username = args.input.username;
-      account.password = args.input.password;
+      account.password = password;
       account.age = args.input.age;
 
       return account.save();

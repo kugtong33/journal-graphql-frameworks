@@ -17,8 +17,6 @@ export default async () => {
   const result = await Account.create(account)
     .then((account: { dataValues: object }) => account.dataValues);
 
-  console.log(result);
-
   return {
     rawPassword: password,
     ...result,

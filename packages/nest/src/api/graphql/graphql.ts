@@ -14,13 +14,11 @@ import { Connection } from 'typeorm';
     username: 'postgres',
     password: 'ZceIdtdqt4wvjmQQvWdO',
     database: 'nest',
-    entities: [__dirname + '/../../**/*.entity{.ts,js}'],
+    entities: [__dirname + '/../../**/*.entity{.ts,.js}'],
     synchronize: true,
     logging: false,
   })
 ] })
 export default class {
-  constructor(private readonly connection: Connection) {
-    console.log(__dirname + '/../../**/*.entity{.ts}');
-  }
+  constructor(private readonly connection: Connection) {}
 }
