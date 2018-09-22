@@ -31,6 +31,9 @@ jobs:
       - restore_cache:
           keys:
             - dependencies-{{ checksum "packages/express/package.json" }}
+      - restore_cache:
+          keys:
+            - dependencies-{{ checksum "packages/nest/package.json" }}
       - run: npm install
       - run: npx lerna bootstrap
       - save_cache:
@@ -45,6 +48,10 @@ jobs:
           key: dependencies-{{ checksum "packages/express/package.json" }}
           paths:
             - packages/express/node_modules
+      - save_cache:
+          key: dependencies-{{ checksum "packages/nest/package.json" }}
+          paths:
+            - packages/nest/node_modules
   test:
     docker:
       - image: circleci/node:8.11.4-stretch
@@ -68,6 +75,9 @@ jobs:
       - restore_cache:
           keys:
             - dependencies-{{ checksum "packages/express/package.json" }}
+      - restore_cache:
+          keys:
+            - dependencies-{{ checksum "packages/nest/package.json" }}
       - run:
           name: posgresql client setup
           command: >

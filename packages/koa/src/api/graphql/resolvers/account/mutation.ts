@@ -1,58 +1,48 @@
 import { hash, genSalt, compare } from 'bcrypt';
 import * as R from 'ramda';
-import { Account } from '../../../../entity/Account';
-
-interface AccountArgs {
-  id: string;
-  username: string;
-  firstname: string;
-  lastname: string;
-  password: string;
-  newPassword: string;
-  oldPassword: string;
-  age: number;
-}
+import Account from '../../../../interfaces/account';
+import { AccountEntity } from '../../../../entity/Account';
 
 export default {
   Mutation: {
-    async createAccount(obj: object, args: { input: AccountArgs }) {
+    async createAccount(obj: object, args: { input: Account }) {
       const password = await hash(args.input.password, await genSalt(10));
-      const account = new Account();
+      const account = new AccountEntity();
 
       account.firstname = args.input.firstname;
       account.lastname = args.input.lastname;
       account.username = args.input.username;
-      account.password = args.input.password;
+      account.password = password;
       account.age = args.input.age;
 
       return account.save();
     },
 
-    async updateAccount(obj: object, args: { input: AccountArgs }) {
-      const account = await Account.findOne({ where: { id: args.input.id }});
+    async updateAccount(obj: object, args: { input: Account }) {
+      const account = await AccountEntity.findOne({ where: { id: args.input.id }});
 
       if (!account) {
-        throw new Error('Account does not exist.');
+        throw new Error('AccountEntity does not exist.');
       }
 
-      await Account.update(
+      await AccountEntity.update(
         { id: args.input.id },
         R.omit(['id', 'password'])(args.input),
       );
 
-      return Account.findOne({ where: { id: args.input.id }});
+      return AccountEntity.findOne({ where: { id: args.input.id }});
     },
 
-    async updateAccountPassword(obj, args: { input: AccountArgs }) {
-      const account = await Account.findOne({ where: { id: args.input.id }});
+    async updateAccountPassword(obj, args: { input: Account }) {
+      const account = await AccountEntity.findOne({ where: { id: args.input.id }});
 
       await compare(args.input.oldPassword, account.password);
 
-      args.input.newPassword = await hash(args.input.newPassword, await genSalt(10));
+      const newPassword = await hash(args.input.newPassword, await genSalt(10));
 
-      await Account.update(
+      await AccountEntity.update(
         { id: args.input.id },
-        { password: args.input.newPassword }
+        { password: newPassword }
       );
 
       return true;

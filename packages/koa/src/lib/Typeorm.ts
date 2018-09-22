@@ -1,5 +1,5 @@
 import { createConnection } from 'typeorm';
-import { Account } from '../entity/Account';
+import { AccountEntity } from '../entity/Account';
 
 /* TODO, define interface for options */
 export default class TypeORM {
@@ -13,10 +13,7 @@ export default class TypeORM {
       username: 'postgres',
       password: 'ZceIdtdqt4wvjmQQvWdO',
       database: 'koa',
-      entities: [
-        Account,
-      ],
-      synchronize: true,
+      entities: [AccountEntity],
       logging: false,
     });
   }

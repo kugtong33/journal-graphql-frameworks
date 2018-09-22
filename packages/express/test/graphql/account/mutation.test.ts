@@ -1,7 +1,7 @@
 import * as supertest from 'supertest';
 import * as Chance from 'chance';
 import * as chai from 'chai';
-import { describe, before, it } from 'mocha';
+import { describe, before, after, it } from 'mocha';
 import Server from '../../../src/Server';
 import randomAccount from '../../helpers/random/account';
 
