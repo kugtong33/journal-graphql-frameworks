@@ -4,7 +4,8 @@
       "packages": [
         "package.json",
         "packages/express/package.json",
-        "packages/koa/package.json"
+        "packages/koa/package.json",
+        "packages/nest/package.json"
       ]
     }
   }
