@@ -4,11 +4,9 @@
 
 Just a bunch of stack that runs with [**GraphQL**](https://graphql.org/) and [**Typescript**](https://www.typescriptlang.org/)
 
-This a personal initiative to try out cool stuff that, I think, has potential and use it on my future projects at work or for personal use.
-
 ## Getting Started
 
-You can directly start hacking out this project in just 4 easy steps.
+You can directly start hacking out this project in just 5 easy commands.
 
 ```bash
 $ npm install
@@ -17,23 +15,20 @@ $ npm run pg-setup
 
 # ohh... I forgot you need docker, pull the latest postgres image and run it
 
+$ npx lerna run lint
 $ npx lerna run test
 ```
 
 ## Running the PostgreSQL instance
 
-Install the latest stable docker version `18.06.1-ce` on [ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/).
+Install the latest [stable docker version](https://docs.docker.com/release-notes/docker-ce/) on [ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/).
 
-Let's just assume you got it figured out, run the postgres container.
+Assuming you figured the installation out, next is to run the postgres container.
 
 ```bash
 $ docker image pull postgres:latest
 $ docker run --name postgres-scaffoldjs -e POSTGRES_PASSWORD=ZceIdtdqt4wvjmQQvWdO -p 5432:5432 -d postgres
 ```
-
-There are still lots and lots of things to do, like code coverage, typescript best practices, ORM best practices, etc.
-I just need to slowly work it through, next stop will be api setup using **micro**, **serverless** and **meteor**, also
-looking forward for microservices setup using **moleculer**.
 
 ### API Frameworks
 
@@ -43,7 +38,6 @@ looking forward for microservices setup using **moleculer**.
 - [ ] Micro
 - [ ] Serverless
 - [ ] Meteor
-- [ ] Moleculer
 
 ### Dedicated ORMs
 
