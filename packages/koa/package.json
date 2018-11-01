@@ -8,7 +8,8 @@
     "posttest": "nyc report --reporter=json && codecov -f coverage/*.json",
     "test": "copyfiles src/api/graphql/types/** build && tsc && nyc ava",
     "lint": "tslint **/*.ts",
-    "start": "ts-node src/index.ts"
+    "start": "ts-node src/index.ts",
+    "clean": "rm -rf build && rm -rf node_modules"
   },
   "dependencies": {
     "apollo-server-koa": "^2.0.6",

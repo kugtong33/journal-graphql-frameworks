@@ -4,11 +4,13 @@
   "description": "express template for graphql api",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
     "pretest": "node --require babel-register node_modules/.bin/sequelize db:migrate --env test",
     "posttest": "nyc report --reporter=json && codecov -f coverage/*.json",
     "test": "nyc mocha",
     "lint": "tslint **/*.ts",
-    "start": "ts-node src/index.ts"
+    "start": "ts-node src/index.ts",
+    "clean": "rm -rf build && rm -rf node_modules"
   },
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",

@@ -1,0 +1,16 @@
+---
+
+- name: Scaffold Graphql Express Packer Provision
+  hosts: all
+  tasks:
+    - name: Setup work directory
+      file: path=/srv/node state=directory
+
+    - name: Install rsync
+      apt: name=rsync state=present
+
+    - name: Copy build
+      synchronize: src=build dest=/srv/node/build
+
+    - name: Copy node_modules
+      synchronize: src=node_modules dest=/srv/node/node_modules

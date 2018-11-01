@@ -1,0 +1,23 @@
+{
+  "builders": [{
+    "type": "docker",
+    "image": "node:8.11.3-stretch",
+    "commit": true,
+    "changes": [
+      "ENV DEBUG=error*,warn*,info* TZ=UTC",
+      "WORKDIR /srv/node",
+      "EXPOSE 80",
+      "CMD node ./build/index.js"
+    ]
+  }],
+  "provisioners": [{
+    "type": "ansible",
+    "user": "root",
+    "playbook_file": "packer.ansible.yml"
+  }],
+  "post-processors": [[{
+    "type": "docker-tag",
+    "repository": "scaffold-graphql/koa",
+    "tag": "latest"
+  }]]
+}
