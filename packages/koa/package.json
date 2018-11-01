@@ -35,7 +35,7 @@
     "@types/koa-cache-control": "^2.0.1",
     "@types/koa-router": "^7.0.31",
     "@types/node": "^10.11.5",
-    "@types/ramda": "^0.25.36",
+    "@types/ramda": "^0.26.0",
     "@types/superagent": "^3.8.3",
     "@types/supertest": "^2.0.5",
     "ava": "^0.25.0",
