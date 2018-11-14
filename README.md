@@ -1,6 +1,7 @@
 # scaffoldjs
 
 [![CircleCI](https://circleci.com/gh/kugtong33/scaffoldjs.svg?style=svg)](https://circleci.com/gh/kugtong33/scaffoldjs) [![codecov](https://codecov.io/gh/kugtong33/scaffoldjs/branch/master/graph/badge.svg)](https://codecov.io/gh/kugtong33/scaffoldjs) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Greenkeeper badge](https://badges.greenkeeper.io/kugtong33/scaffoldjs.svg)](https://greenkeeper.io/)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fkugtong33%2Fscaffold-graphql.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fkugtong33%2Fscaffold-graphql?ref=badge_shield)
 
 Just a bunch of stack that runs with [**GraphQL**](https://graphql.org/) and [**Typescript**](https://www.typescriptlang.org/)
 
@@ -43,3 +44,6 @@ $ docker run --name postgres-scaffoldjs -e POSTGRES_PASSWORD=ZceIdtdqt4wvjmQQvWd
 
 - [x] Typeorm
 - [x] Sequelize
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fkugtong33%2Fscaffold-graphql.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fkugtong33%2Fscaffold-graphql?ref=badge_large)
