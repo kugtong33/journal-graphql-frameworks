@@ -43,7 +43,7 @@
     "codecov": "^3.1.0",
     "copyfiles": "^2.0.0",
     "nyc": "^13.0.1",
-    "supertest": "^3.1.0",
+    "supertest": "^4.0.0",
     "ts-node": "^7.0.1",
     "tslint": "^5.11.0",
     "tslint-config-airbnb": "^5.9.2",
