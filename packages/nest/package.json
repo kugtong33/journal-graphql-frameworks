@@ -17,7 +17,7 @@
     "@nestjs/common": "^5.3.6",
     "@nestjs/core": "^5.3.6",
     "@nestjs/graphql": "^5.2.2",
-    "@nestjs/typeorm": "^5.2.1",
+    "@nestjs/typeorm": "^6.0.0",
     "apollo-server-express": "^2.0.6",
     "ava": "^0.25.0",
     "bcrypt": "^3.0.0",
