@@ -60,7 +60,7 @@
     "merge-graphql-schemas": "^1.5.3",
     "pg": "^7.4.3",
     "ramda": "^0.25.0",
-    "sequelize": "^4.38.0"
+    "sequelize": "^4.44.3"
   },
   "nyc": {
     "include": [
