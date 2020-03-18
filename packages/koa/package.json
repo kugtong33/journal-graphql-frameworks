@@ -25,7 +25,7 @@
     "pg": "^7.4.3",
     "ramda": "^0.25.0",
     "reflect-metadata": "^0.1.10",
-    "typeorm": "0.2.8"
+    "typeorm": "0.2.15"
   },
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
