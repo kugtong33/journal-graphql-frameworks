@@ -10,7 +10,9 @@
     "test": "nyc mocha",
     "lint": "tslint **/*.ts",
     "start": "ts-node src/index.ts",
-    "clean": "rm -rf build && rm -rf node_modules"
+    "clean": "rm -rf build && rm -rf node_modules",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
@@ -60,7 +62,8 @@
     "merge-graphql-schemas": "^1.5.3",
     "pg": "^7.4.3",
     "ramda": "^0.25.0",
-    "sequelize": "^4.38.0"
+    "sequelize": "^4.38.0",
+    "snyk": "^1.319.0"
   },
   "nyc": {
     "include": [
@@ -74,5 +77,6 @@
     ],
     "sourceMap": true,
     "instrument": true
-  }
+  },
+  "snyk": true
 }
