@@ -51,7 +51,7 @@
   "license": "MIT",
   "dependencies": {
     "apollo-server-express": "^2.0.0",
-    "bcrypt": "^3.0.0",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.18.3",
     "core-js": "^2.5.7",
     "cors": "^2.8.4",
