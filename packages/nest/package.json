@@ -20,7 +20,7 @@
     "@nestjs/typeorm": "^5.2.1",
     "apollo-server-express": "^2.0.6",
     "ava": "^0.25.0",
-    "bcrypt": "^3.0.0",
+    "bcrypt": "^5.0.0",
     "chance": "^1.0.16",
     "fastify-formbody": "^2.0.0",
     "graphql": "^0.13.2",
