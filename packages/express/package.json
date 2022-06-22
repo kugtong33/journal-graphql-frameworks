@@ -50,7 +50,7 @@
   "author": "Arjay Sitoy <sitoy.arjay@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "apollo-server-express": "^2.0.0",
+    "apollo-server-express": "^3.0.0",
     "bcrypt": "^3.0.0",
     "body-parser": "^1.18.3",
     "core-js": "^2.5.7",
@@ -60,7 +60,7 @@
     "merge-graphql-schemas": "^1.5.3",
     "pg": "^7.4.3",
     "ramda": "^0.25.0",
-    "sequelize": "^4.38.0"
+    "sequelize": "^6.19.1"
   },
   "nyc": {
     "include": [
